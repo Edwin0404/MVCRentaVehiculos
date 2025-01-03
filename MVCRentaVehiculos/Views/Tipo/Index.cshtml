@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVCRentaVehiculos.Models.Tipo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tipos de Vehículos</h1>
+
+<partial name="_Notification" />
+<table class="table">
+    <thead>
+        <tr class="table-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <div class="text-end">
+                <a asp-controller="Tipo" asp-action="Create" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>    Agregar
+                </a>
+            </div>
+            <form class="ml-2 d-flex align-items-center">
+                <div class="filters mx-4 d-flex align-items-center">
+                    <div class="mx-2">
+                        <input type="text" class="ml-2 form-control" name="buscar" />
+                    </div>
+                    <div class="mx-2">
+                        <button type="submit" class="btn btn-secondary">
+                            <i class="fa-solid fa-magnifying-glass"></i>    Buscar
+                        </button>
+                    </div>
+                    <div class="ml-2">
+                        <a class="btn btn-info" asp-action="Index" />
+                        <i class="fa-solid fa-brush"></i>   Limpiar
+                        </a>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    <a asp-controller="Tipo" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
+                        <i class="fa-solid fa-pen-to-square"></i>   Editar
+                    </a>
+                    <a asp-controller="Tipo" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">
+                        <i class="fa-solid fa-circle-info"></i>   Detalles
+                    </a>
+                    <a asp-controller="Tipo" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>   Eliminar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<MVCRentaVehiculos.Models.Alquiler>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Alquileres</h1>
+
+<table class="table">
+    <thead>
+        <tr class="table-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAlquiler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDevolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Importe)
+            </th>
+            <div class="text-end">
+                <a asp-controller="Alquiler" asp-action="Create" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>    Agregar
+                </a>
+            </div>
+            <form class="ml-2 d-flex align-items-center">
+                <div class="filters mx-4 d-flex align-items-center">
+                    <div class="mx-2">
+                        <input type="text" class="ml-2 form-control" name="buscar" />
+                    </div>
+                    <div class="mx-2">
+                        <input type="date" name="fechaIni" class="form-control" />
+                    </div>
+                    <div class="mx-2">
+                        <input type="date" name="fechaFin" class="form-control" />
+                    </div>
+                    <div class="mx-2">
+                        <button type="submit" class="btn btn-secondary">
+                            <i class="fa-solid fa-magnifying-glass"></i>    Buscar
+                        </button>
+                    </div>
+                    <div class="ml-2">
+                        <a class="btn btn-info" asp-action="Index" />
+                        <i class="fa-solid fa-brush"></i>   Limpiar
+                        </a>
+                    </div>
+                    <div>
+                        <label>ㅤ</label>
+                        <a class="btn btn-primary" asp-controller="Alquiler" asp-action="MostrarPDFenPagina" target="_blank">Ver PDF en pagina</a>
+                        <label>ㅤ</label>
+                        <a class="btn btn-primary" asp-controller="Alquiler" asp-action="DescargarPDF">Descargar PDF</a>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaAlquiler)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDevolucion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vehiculo.Placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.NombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observaciones)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Importe)
+                </td>
+                <td>
+                    <a asp-controller="Alquiler" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
+                        <i class="fa-solid fa-pen-to-square"></i>   Editar
+                    </a>
+                    <a asp-controller="Alquiler" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">
+                        <i class="fa-solid fa-circle-info"></i>   Detalles
+                    </a>
+                    <a asp-controller="Alquiler" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>   Eliminar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

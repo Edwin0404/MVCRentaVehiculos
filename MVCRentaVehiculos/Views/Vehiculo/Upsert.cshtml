@@ -1,0 +1,107 @@
+﻿@model Vehiculo
+@{
+    var titulo = "Crear";
+    var subtitulo = "Vehiculo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    @if (Model.Id != 0)
+    {
+        titulo = "Editar Vehiculo";
+        //Colocar el campo Id oculto
+        <input asp-for="Id" hidden />
+    }
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <h2 class="text-info">@titulo</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Color" class="form-label">Color</label>
+                            <input asp-for="Color" class="form-control" />
+                            <span asp-validation-for="Color" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="Placa" class="form-label">Placa</label>
+                            <input asp-for="Placa" class="form-control" />
+                            <span asp-validation-for="Placa" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="TipoId" class="control-label">Tipo</label>
+                            <select asp-for="TipoId" class="form-control" asp-items="ViewBag.tipoLista">
+                                <option selected disabled>-- Seleccione Tipo --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="MarcaId" class="control-label">Marca</label>
+                            <select asp-for="MarcaId" class="form-control" asp-items="ViewBag.MarcaLista">
+                                <option selected disabled>-- Seleccione Marca --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label asp-for="ImagenUrl" class="form-label">Imagen</label>
+                            <input type="file" name="files" id="imagenId" class="form-control" />
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="d-grid gap-2 d-md-block">
+                        @*Si el ID existe*@
+                        @if (Model.Id != 0)
+                        {
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fa-solid fa-pen-to-square"></i>   Editar
+                            </button>
+                        }
+                        else
+                        {
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-plus"></i>    Agregar
+                            </button>
+                        }
+
+                        <a asp-action="Index" class="btn btn-info">
+                            <i class="fa-solid fa-rotate-left"></i>   Regresar
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="@WC.ImagenRuta@Model.ImagenUrl" width="100%" style="border-radius:5px;
+                                                            border:1px solid #bbb" />
+            </div>
+        </div>
+
+    </div>
+</form>
+@section Scripts{
+
+    <script>
+        function validarImagen() {
+            if (document.getElementById("imagenId").value == "") {
+                swal("Error", "Selecione la imagen!", "error");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    @*@{<partial name="_ValidationScriptsPartial" />}*@
+    }
+

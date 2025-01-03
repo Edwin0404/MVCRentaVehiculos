@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MVCRentaVehiculos.Models.Alquiler>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<h1>Reportes de Alquiler</h1>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaParaPDF</title>
+    <style>
+        h1 {
+            color: #3F9869
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid gray;
+            padding: 15px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #324EFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <br />
+        <img src="https://www.autobild.es/sites/autobild.es/public/marcas/fotos/Principal_Ferrari.jpg" style="witdth: 200px; height:100px;" />
+        <br />
+        <h1>Lista de Alquileres</h1>
+        <br />
+
+        <table class="table">
+            <thead>
+                <tr class="table-dark">
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaAlquiler)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaDevolucion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vehiculo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Observaciones)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Importe)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.FechaAlquiler)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaDevolucion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vehiculo.Color)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cliente.Apellidos)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Observaciones)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Importe)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>
