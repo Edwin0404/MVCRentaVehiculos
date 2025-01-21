@@ -4,28 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Reporte</h1>
+<h1>Movimiento</h1>
 
 <table class="table">
     <thead>
         <tr class="table-dark">
             <th>
-                @Html.DisplayNameFor(model => model.FechaAlquiler)
+                Fecha
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaDevolucion)
+                Descripción
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vehiculo)
+                Nombre Producto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cliente)
+                Ingreso/Salida
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Observaciones)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Importe)
+                Cantidad
             </th>
             <div class="text-end">
                 <a asp-controller="Movement" asp-action="Create" class="btn btn-primary">
@@ -71,9 +68,6 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.FechaAlquiler)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaDevolucion)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Vehiculo.Placa)
