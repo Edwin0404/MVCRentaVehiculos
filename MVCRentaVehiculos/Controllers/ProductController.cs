@@ -12,12 +12,12 @@ using MVCRentaVehiculos.Models;
 
 namespace MVCRentaVehiculos.Controllers
 {
-    public class VehiculoController : Controller
+    public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public VehiculoController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
+        public ProductController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
