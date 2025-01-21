@@ -10,11 +10,11 @@ using MVCRentaVehiculos.Models;
 
 namespace MVCRentaVehiculos.Controllers
 {
-    public class TypeController : Controller
+    public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public TypeController(ApplicationDbContext context)
+        public CategoryController(ApplicationDbContext context)
         {
             _context = context;
         }
