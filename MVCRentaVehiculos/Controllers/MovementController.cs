@@ -10,11 +10,11 @@ using MVCRentaVehiculos.Models;
 
 namespace MVCRentaVehiculos.Controllers
 {
-    public class ClienteController : Controller
+    public class MovementController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ClienteController(ApplicationDbContext context)
+        public MovementController(ApplicationDbContext context)
         {
             _context = context;
         }
