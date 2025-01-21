@@ -28,7 +28,7 @@
                 @Html.DisplayNameFor(model => model.Importe)
             </th>
             <div class="text-end">
-                <a asp-controller="Report" asp-action="Create" class="btn btn-primary">
+                <a asp-controller="Movement" asp-action="Create" class="btn btn-primary">
                     <i class="fa-solid fa-plus"></i>    Agregar
                 </a>
             </div>
@@ -55,9 +55,9 @@
                     </div>
                     <div>
                         <label>ㅤ</label>
-                        <a class="btn btn-primary" asp-controller="Report" asp-action="MostrarPDFenPagina" target="_blank">Ver PDF en pagina</a>
+                        <a class="btn btn-primary" asp-controller="Movement" asp-action="MostrarPDFenPagina" target="_blank">Ver PDF en pagina</a>
                         <label>ㅤ</label>
-                        <a class="btn btn-primary" asp-controller="Report" asp-action="DescargarPDF">Descargar PDF</a>
+                        <a class="btn btn-primary" asp-controller="Movement" asp-action="DescargarPDF">Descargar PDF</a>
                     </div>
                 </div>
             </form>
@@ -88,13 +88,13 @@
                     @Html.DisplayFor(modelItem => item.Importe)
                 </td>
                 <td>
-                    <a asp-controller="Report" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
+                    <a asp-controller="Movement" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
                         <i class="fa-solid fa-pen-to-square"></i>   Editar
                     </a>
-                    <a asp-controller="Report" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">
+                    <a asp-controller="Movement" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">
                         <i class="fa-solid fa-circle-info"></i>   Detalles
                     </a>
-                    <a asp-controller="Report" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                    <a asp-controller="Movement" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
                         <i class="fa-solid fa-trash"></i>   Eliminar
                     </a>
                 </td>
