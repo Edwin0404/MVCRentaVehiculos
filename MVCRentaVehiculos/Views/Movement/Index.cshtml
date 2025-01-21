@@ -10,19 +10,13 @@
     <thead>
         <tr class="table-dark">
             <th>
-                @Html.DisplayNameFor(model => model.Nombres)
+                Producto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Apellidos)
+                Cantidad
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dni)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Direccion)
+                Fecha
             </th>
             <div class="text-end">
                 <a asp-controller="Movement" asp-action="Create" class="btn btn-primary">
@@ -61,12 +55,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Dni)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
             </td>
                 <td>
                     <a asp-controller="Movement" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
