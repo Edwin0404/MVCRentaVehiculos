@@ -15,12 +15,12 @@ using Microsoft.CodeAnalysis.RulesetToEditorconfig;
 
 namespace MVCRentaVehiculos.Controllers
 {
-    public class AlquilerController : Controller
+    public class ReportController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IConverter _converter;
 
-        public AlquilerController(ApplicationDbContext context, IConverter converter)
+        public ReportController(ApplicationDbContext context, IConverter converter)
         {
             _context = context;
             _converter = converter;
