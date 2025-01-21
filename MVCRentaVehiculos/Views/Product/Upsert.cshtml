@@ -22,40 +22,31 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            <label asp-for="Color" class="form-label">Color</label>
+                            <label asp-for="Color" class="form-label">Nombre</label>
                             <input asp-for="Color" class="form-control" />
                             <span asp-validation-for="Color" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label asp-for="Placa" class="form-label">Placa</label>
+                            <label asp-for="Placa" class="form-label">Descripción</label>
                             <input asp-for="Placa" class="form-control" />
                             <span asp-validation-for="Placa" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label asp-for="TipoId" class="control-label">Tipo</label>
+                            <label asp-for="TipoId" class="control-label">Categoría</label>
                             <select asp-for="TipoId" class="form-control" asp-items="ViewBag.tipoLista">
-                                <option selected disabled>-- Seleccione Tipo --</option>
+                                <option selected disabled>-- Seleccione Categoría --</option>
                             </select>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-6">
-                            <label asp-for="MarcaId" class="control-label">Marca</label>
-                            <select asp-for="MarcaId" class="form-control" asp-items="ViewBag.MarcaLista">
-                                <option selected disabled>-- Seleccione Marca --</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label asp-for="ImagenUrl" class="form-label">Imagen</label>
-                            <input type="file" name="files" id="imagenId" class="form-control" />
+                            <label asp-for="ImagenUrl" class="form-label">Stock</label>
+                            <input asp-for="ImagenUrl" class="form-control" />
+                            <span asp-validation-for="ImagenUrl" class="text-danger"></span>
                         </div>
                     </div>
                     <br />

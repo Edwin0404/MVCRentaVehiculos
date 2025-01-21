@@ -10,20 +10,16 @@
     <thead>
         <tr class="table-dark">
             <th>
-                @Html.DisplayNameFor(model => model.Color)
+                Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Placa)
+                Descripción
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tipo)
+                Categoría
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Marca)
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.ImagenUrl)*@
-                Imagen
+                Stock
             </th>
             <div class="text-end">
                 <a asp-controller="Product" asp-action="Upsert" class="btn btn-primary">
@@ -65,10 +61,7 @@
                     @Html.DisplayFor(modelItem => item.Tipo.Nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Marca.Nombre)
-                </td>
-                <td>
-                    <img src="~/imagenes/vehiculos/@item.ImagenUrl" style="witdth: 50px; height:50px;"/>
+                    @Html.DisplayFor(modelItem => item.ImagenUrl)
                 </td>
                 <td>
                     <a asp-controller="Product" asp-action="Upsert" asp-route-id="@item.Id" class="btn btn-warning">

@@ -182,19 +182,10 @@ namespace MVCRentaVehiculos.Controllers
             {
                 var files = HttpContext.Request.Form.Files;
                 string webRootPath = _webHostEnvironment.WebRootPath;
+                vehiculo.MarcaId = 1;
 
                 if (vehiculo.Id == 0)
                 {
-                    //crear
-                    string upload = webRootPath + WC.ImagenRuta;
-                    string fileName = Guid.NewGuid().ToString();
-                    string extension = Path.GetExtension(files[0].FileName);
-
-                    using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
-                    {
-                        files[0].CopyTo(fileStream);
-                    }
-                    vehiculo.ImagenUrl = fileName + extension;
                     _context.Vehiculo.Add(vehiculo);
                 }
                 else
@@ -205,20 +196,12 @@ namespace MVCRentaVehiculos.Controllers
                     if (files.Count > 0) //Usuario esta actualizando la imagen
                     {
                         string upload = webRootPath + WC.ImagenRuta;
-                        string fileName = Guid.NewGuid().ToString();
-                        string extension = Path.GetExtension(files[0].FileName);
 
                         var anteriorFile = Path.Combine(upload, objVehiculo.ImagenUrl);
                         if (System.IO.File.Exists(anteriorFile))
                         {
                             System.IO.File.Delete(anteriorFile);
                         }
-
-                        using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
-                        {
-                            files[0].CopyTo(fileStream);
-                        }
-                        vehiculo.ImagenUrl = fileName + extension;
                     }
                     else //El usuario está actualizando otros datos, no la imagen
                     {
